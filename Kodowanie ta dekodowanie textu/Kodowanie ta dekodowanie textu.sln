@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kodowanie ta dekodowanie te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sortowanie pliku", "..\Sortowanie pliku\Sortowanie pliku.csproj", "{A28D5E47-8F41-4719-B68B-0990780A75F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kurs walut", "..\Kurs walut\Kurs walut.csproj", "{F8B1A98A-6AD3-4DB3-840D-60F0BE0C6078}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A28D5E47-8F41-4719-B68B-0990780A75F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A28D5E47-8F41-4719-B68B-0990780A75F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A28D5E47-8F41-4719-B68B-0990780A75F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B1A98A-6AD3-4DB3-840D-60F0BE0C6078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B1A98A-6AD3-4DB3-840D-60F0BE0C6078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B1A98A-6AD3-4DB3-840D-60F0BE0C6078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B1A98A-6AD3-4DB3-840D-60F0BE0C6078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
