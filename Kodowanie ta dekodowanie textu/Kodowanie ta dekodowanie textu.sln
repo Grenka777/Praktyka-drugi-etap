@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "..\WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testApiRequest", "..\testApiRequest\testApiRequest.csproj", "{92E00FD6-B9CB-44D4-A450-E0A91BF8A2EE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitHubAuth", "..\GitHubAuth\GitHubAuth.csproj", "{13948FD4-9C59-4CBD-A19F-245D376C3CC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{92E00FD6-B9CB-44D4-A450-E0A91BF8A2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E00FD6-B9CB-44D4-A450-E0A91BF8A2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E00FD6-B9CB-44D4-A450-E0A91BF8A2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13948FD4-9C59-4CBD-A19F-245D376C3CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13948FD4-9C59-4CBD-A19F-245D376C3CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13948FD4-9C59-4CBD-A19F-245D376C3CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13948FD4-9C59-4CBD-A19F-245D376C3CC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
