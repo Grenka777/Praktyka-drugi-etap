@@ -19,6 +19,7 @@ namespace GitHubAuth
 
             var repositories = await RunGitRepo();
             Console.WriteLine("Twoje repozytorium:\t");
+            Console.WriteLine(root.ReposUrl);
             foreach (var repo in repositories)
             {
                 Console.WriteLine("Nazwa: "+repo.Name);
@@ -57,11 +58,8 @@ namespace GitHubAuth
            static async Task<List<Repository>> RunGitRepo() 
         {
 
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-            
+
+
             var streamTask = client.GetStreamAsync(root.ReposUrl);
             var repositories = await JsonSerializer.DeserializeAsync<List<Repository>>(await streamTask);
 
