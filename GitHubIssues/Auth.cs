@@ -10,11 +10,12 @@ namespace GitHubIssues
 {
    public  class Auth
     {
+        
        
         public async Task<List<Issue>> GetAllIssues(string token, ComboBox comboBox)
         {
-         var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
-            
+            var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
+
             var tokenAuth = new Credentials(token);
             client.Credentials = tokenAuth;
             var user = await client.User.Current();
@@ -26,9 +27,11 @@ namespace GitHubIssues
             
             return gitIssues;
 
+            
+
         }
 
-        public async  Task CreateIssue(string token, string userIssueTitle, string userIssueBody, ComboBox comboBox)
+        public async Task CreateIssue(string token, string userIssueTitle, string userIssueBody, ComboBox comboBox)
         {
 
             var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
@@ -36,10 +39,19 @@ namespace GitHubIssues
             client.Credentials = tokenAuth;
             var user = await client.User.Current();
 
-            var createIssue = new NewIssue(userIssueTitle) { Body = userIssueBody};
-            var issue = await client.Issue.Create(user.Login,comboBox.Text,createIssue);
 
-            var issueId = issue.Id;
+            var gitIssues = new List<Issue>();
+            var issueAsync = await client.Issue.GetAllForRepository(user.Login, comboBox.Text);
+            gitIssues = issueAsync.ToList();
+
+                var createIssue = new NewIssue(userIssueTitle) { Body = userIssueBody};
+                    var issue = await client.Issue.Create(user.Login,comboBox.Text,createIssue);
+                     var issueNum = issue.Number;
+
+            
+                   
+
+           
  
         }
        
@@ -49,7 +61,7 @@ namespace GitHubIssues
             var tokenAuth = new Credentials(token);
             client.Credentials = tokenAuth;
             var user = await client.User.Current();
-
+            
             var issueUpdate = new IssueUpdate();
             issueUpdate.Title = issueTitle;
             issueUpdate.Body = issueBody;
