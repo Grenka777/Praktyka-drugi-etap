@@ -28,9 +28,9 @@ namespace GitHubIssues
                 foreach (var item in data)
                 {
 
-                    int secretdata = Convert.ToInt32( protectedIssues.Protect(item.Body));
+                    
                     SQLiteCommand insertSQL = sql_con.CreateCommand();
-                    insertSQL.CommandText = "INSERT INTO Issues1 (Title, Body) VALUES ('" + item.Title + "','" + secretdata + "')";
+                    insertSQL.CommandText = "INSERT INTO Issues1 (Title, Body) VALUES ('" + item.Title + "','" + protectedIssues.ToBase64Encode(item.Body) + "')";
                     insertSQL.ExecuteNonQuery();
                     
                 }
@@ -79,8 +79,8 @@ namespace GitHubIssues
 
                 while (reeader.Read())
                 {
-
-                    auth.CreateIssue(token, reeader[0].ToString(), reeader[1].ToString(), comboBox);
+                    string originaltxt = protectedIssues.ToBase64Decode(reeader[1].ToString());
+                    auth.CreateIssue(token, reeader[0].ToString(), originaltxt, comboBox);
                     MessageBox.Show("Issues było przywracone do GitHub");
                 }   
 

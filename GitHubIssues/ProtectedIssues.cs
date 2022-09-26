@@ -11,37 +11,30 @@ namespace GitHubIssues
     class ProtectedIssues
     {
 
-        static byte[] s_additionalEntropy = { 9, 8, 7, 6, 5 };
-
-       
-        public byte[] Protect(string data)
+        public  string ToBase64Encode(string text)
         {
-            try
+            if (String.IsNullOrEmpty(text))
             {
-                byte[] bytes = Encoding.ASCII.GetBytes(data);
-                return ProtectedData.Protect(bytes, s_additionalEntropy, DataProtectionScope.CurrentUser);
+                return text;
             }
-            catch (CryptographicException e)
-            {
-                Console.WriteLine("Data was not encrypted. An error occurred.");
-                Console.WriteLine(e.ToString());
-                return null;
-            }
+
+            byte[] textByte = Encoding.UTF8.GetBytes(text);
+            return Convert.ToBase64String(textByte);
+
         }
 
-        public  byte[] Unprotect(byte[] data)
+
+        public  string ToBase64Decode(string encodedText)
         {
-            try
+            if (String.IsNullOrEmpty(encodedText))
             {
-                //Decrypt the data using DataProtectionScope.CurrentUser.
-                return ProtectedData.Unprotect(data, s_additionalEntropy, DataProtectionScope.CurrentUser);
+                return encodedText;
             }
-            catch (CryptographicException e)
-            {
-                Console.WriteLine("Data was not decrypted. An error occurred.");
-                Console.WriteLine(e.ToString());
-                return null;
-            }
+            byte[] EncodedBytes = Convert.FromBase64String(encodedText);
+            return Encoding.UTF8.GetString(EncodedBytes);
         }
+
+
+
     }   
 }
