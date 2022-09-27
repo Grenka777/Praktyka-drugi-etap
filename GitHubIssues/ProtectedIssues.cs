@@ -10,7 +10,7 @@ namespace GitHubIssues
 {
     class ProtectedIssues
     {
-
+        //metoda szyfrowania tekstu
         public  string ToBase64Encode(string text)
         {
             if (String.IsNullOrEmpty(text))
@@ -23,7 +23,7 @@ namespace GitHubIssues
 
         }
 
-
+        //metoda deszyfrwania tekstu
         public  string ToBase64Decode(string encodedText)
         {
             if (String.IsNullOrEmpty(encodedText))

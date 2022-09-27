@@ -16,6 +16,7 @@ namespace GitHubIssues
 {
     public partial class Form1 : Form
     {
+        DBConnect dBConnect = new DBConnect();
         Auth auth = new Auth();
         string tokenString;
 
@@ -24,6 +25,7 @@ namespace GitHubIssues
             InitializeComponent();           
         }
 
+        //button logowania do aplikackji
         private  void button1_ClickAsync(object sender, EventArgs e)
         {
             try
@@ -51,7 +53,7 @@ namespace GitHubIssues
             }
                      
         }
-
+        //metoda pobierania nazwy repo zalogowanego użytownika ta dodawanie ich do comboboxa
         public async void completeComboBoxAsync(string token, ComboBox ComboBoxRepos )
         {
             try
@@ -61,8 +63,8 @@ namespace GitHubIssues
                 var tokenAuth = new Credentials(token);
                 client.Credentials = tokenAuth;
                 var user = await client.User.Current();
-
                 var repos = await client.Repository.GetAllForCurrent();
+
                 foreach (var repo in repos)
                 {
                     ComboBoxRepos.Items.Add(repo.Name);
@@ -82,6 +84,7 @@ namespace GitHubIssues
           
         }
 
+        //button który wyświetla wszysckie issues w wybranym repo do richTextoxa
         private async void button2_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = string.Empty;
@@ -97,6 +100,7 @@ namespace GitHubIssues
             
         }
 
+        //button dodawania nowego issues
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
 
@@ -124,7 +128,7 @@ namespace GitHubIssues
           
             
         }
-
+        //button aktualizacji wybranego Issues
         private async void buttonEdit_Click(object sender, EventArgs e)
         {
             try
@@ -139,14 +143,14 @@ namespace GitHubIssues
             }
         }
 
-        DBConnect dBConnect = new DBConnect();
-
+        
+        //button dodawania danych do bazy
         private async void buttonInsert_Click(object sender, EventArgs e)
         {
             
             dBConnect.InsertDataAsync(auth,tokenString,comboBox1);
         }
-
+        //czytanie danych z bazy
         private void buttonRead_Click(object sender, EventArgs e)
         {
             

@@ -19,16 +19,16 @@ namespace GitHubIssues
         
         public async void InsertDataAsync(Auth auth, string token, ComboBox comboBox)
         {
+
             sql_con.Open();
-
-
             try
             {
+                //odbieram wszysckie issues z github i dodaję do Bazy danych
                 var data = await auth.GetAllIssues(token, comboBox);
                 foreach (var item in data)
                 {
 
-                    
+                    //comanda dodawania danych do bazt=y
                     SQLiteCommand insertSQL = sql_con.CreateCommand();
                     insertSQL.CommandText = "INSERT INTO Issues1 (Title, Body) VALUES ('" + item.Title + "','" + protectedIssues.ToBase64Encode(item.Body) + "')";
                     insertSQL.ExecuteNonQuery();
@@ -64,16 +64,13 @@ namespace GitHubIssues
         
         public async void RestoreGit(string token,ComboBox comboBox)
         {
-            var dataAllIssues = await auth.GetAllIssues(token, comboBox);
-
-           
-
 
             DataTable data = new DataTable();
             SQLiteCommand command= new SQLiteCommand( "SELECT * FROM Issues1",sql_con);
            sql_con.Open();
             SQLiteDataReader reeader = command.ExecuteReader();
-
+            
+            //czytam wszystkie dane z bazy i dodaję bezpośriednio do wybranego repo 
             try
             {
 
@@ -95,6 +92,8 @@ namespace GitHubIssues
             reeader.Close();
             sql_con.Close();
         }
+
+
         public void BackupDb(SaveFileDialog ofd1)
         {
             if (ofd1 is null)
