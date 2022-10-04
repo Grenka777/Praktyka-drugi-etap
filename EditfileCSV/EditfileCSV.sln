@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditfileCSV", "EditfileCSV.csproj", "{4332B491-2890-45EE-9333-9695397B2CF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4332B491-2890-45EE-9333-9695397B2CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4332B491-2890-45EE-9333-9695397B2CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4332B491-2890-45EE-9333-9695397B2CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4332B491-2890-45EE-9333-9695397B2CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E27189E-FB7B-4561-ADDC-A83D380BFD3A}
+	EndGlobalSection
+EndGlobal
